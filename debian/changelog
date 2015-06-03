@@ -1,3 +1,9 @@
+harfbuzz (0.9.35-2pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Wed, 03 Jun 2015 16:56:49 +0000
+
 harfbuzz (0.9.35-2) unstable; urgency=medium
 
   * debain/clean: Remove test/shaping/*.pyc during clean

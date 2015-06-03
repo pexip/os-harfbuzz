@@ -1,8 +1,9 @@
 Source: harfbuzz
 Section: libs
 Priority: optional
-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+XSBC-Pexip-Original-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
 Standards-Version: 3.9.6
 Build-Depends:
  debhelper (>= 9~),
@@ -19,6 +20,7 @@ Build-Depends:
 Homepage: http://www.freedesktop.org/wiki/Software/HarfBuzz
 Vcs-Git: git://anonscm.debian.org/collab-maint/harfbuzz.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/harfbuzz.git
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: libharfbuzz0b
 Architecture: any
