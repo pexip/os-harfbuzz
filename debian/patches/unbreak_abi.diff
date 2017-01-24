@@ -6,9 +6,9 @@ Forwarded: not-needed
 
 --- a/src/hb-common.cc
 +++ b/src/hb-common.cc
-@@ -587,3 +587,23 @@
- {
-   return HB_VERSION_ATLEAST (major, minor, micro);
+@@ -949,3 +949,23 @@
+   memcpy (buf, s, len);
+   buf[len] = '\0';
  }
 +
 +/**
@@ -41,7 +41,7 @@ Forwarded: not-needed
 +	 HB_VERSION_MAJOR*10000+HB_VERSION_MINOR*100+HB_VERSION_MICRO)
  
  
- void
+ HB_EXTERN void
 @@ -60,6 +63,11 @@
  		    unsigned int minor,
  		    unsigned int micro);
@@ -66,7 +66,7 @@ Forwarded: not-needed
 +
  
  
- void
+ HB_EXTERN void
 @@ -60,6 +64,11 @@
  		    unsigned int minor,
  		    unsigned int micro);
