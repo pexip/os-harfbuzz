@@ -20,7 +20,7 @@ Build-Depends:
 Homepage: http://www.freedesktop.org/wiki/Software/HarfBuzz
 Vcs-Git: git://anonscm.debian.org/collab-maint/harfbuzz.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/harfbuzz.git
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: libharfbuzz0b
 Architecture: any
