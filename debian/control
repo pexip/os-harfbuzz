@@ -4,22 +4,21 @@ Priority: optional
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 XSBC-Pexip-Original-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Build-Depends:
- debhelper (>= 9~),
+ debhelper (>= 10),
  pkg-config,
- libglib2.0-dev,
+ libglib2.0-dev (>= 2.19.1),
  libcairo2-dev,
  libfreetype6-dev,
  libicu-dev,
  libgraphite2-dev,
  libgirepository1.0-dev (>= 1.31.0-2),
- gobject-introspection (>= 1.34.0),
+ gobject-introspection (>= 1.42.0),
  gtk-doc-tools (>= 1.15),
- dh-autoreconf,
-Homepage: http://www.freedesktop.org/wiki/Software/HarfBuzz
-Vcs-Git: git://anonscm.debian.org/collab-maint/harfbuzz.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/harfbuzz.git
+Homepage: https://www.freedesktop.org/wiki/Software/HarfBuzz
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/harfbuzz.git
+Vcs-Browser: https://anonscm.debian.org/git/collab-maint/harfbuzz.git
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: libharfbuzz0b
@@ -70,8 +69,16 @@ Description: OpenType text shaping engine ICU backend
 
 Package: libharfbuzz-dev
 Architecture: any
+Multi-Arch: same
 Section: libdevel
-Depends: ${misc:Depends}, libharfbuzz0b (= ${binary:Version}), libharfbuzz-icu0 (= ${binary:Version}), libharfbuzz-gobject0 (= ${binary:Version})
+Depends:
+ ${misc:Depends},
+ libharfbuzz0b (= ${binary:Version}),
+ libharfbuzz-icu0 (= ${binary:Version}),
+ libharfbuzz-gobject0 (= ${binary:Version}),
+ libglib2.0-dev (>= 2.19.1),
+ libgraphite2-dev,
+ libicu-dev,
 Description: Development files for OpenType text shaping engine
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout
  engine) and the script-specific logic (aka shaping engine).

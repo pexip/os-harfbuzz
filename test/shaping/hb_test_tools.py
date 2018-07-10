@@ -1,10 +1,50 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
+from __future__ import print_function
 import sys, os, re, difflib, unicodedata, errno, cgi
 from itertools import *
 
 diff_symbols = "-+=*&^%$#@!~/"
 diff_colors = ['red', 'green', 'blue']
+
+try:
+	unichr = unichr
+
+	if sys.maxunicode < 0x10FFFF:
+		# workarounds for Python 2 "narrow" builds with UCS2-only support.
+
+		_narrow_unichr = unichr
+
+		def unichr(i):
+			"""
+			Return the unicode character whose Unicode code is the integer 'i'.
+			The valid range is 0 to 0x10FFFF inclusive.
+
+			>>> _narrow_unichr(0xFFFF + 1)
+			Traceback (most recent call last):
+			  File "<stdin>", line 1, in ?
+			ValueError: unichr() arg not in range(0x10000) (narrow Python build)
+			>>> unichr(0xFFFF + 1) == u'\U00010000'
+			True
+			>>> unichr(1114111) == u'\U0010FFFF'
+			True
+			>>> unichr(0x10FFFF + 1)
+			Traceback (most recent call last):
+			  File "<stdin>", line 1, in ?
+			ValueError: unichr() arg not in range(0x110000)
+			"""
+			try:
+				return _narrow_unichr(i)
+			except ValueError:
+				try:
+					padded_hex_str = hex(i)[2:].zfill(8)
+					escape_str = "\\U" + padded_hex_str
+					return escape_str.decode("unicode-escape")
+				except UnicodeDecodeError:
+					raise ValueError('unichr() arg not in range(0x110000)')
+
+except NameError:
+	unichr = chr
 
 class ColorFormatter:
 
@@ -142,7 +182,7 @@ class ZipDiffer:
 						sys.stdout.writelines ([symbols[i], l])
 		except IOError as e:
 			if e.errno != errno.EPIPE:
-				print >> sys.stderr, "%s: %s: %s" % (sys.argv[0], e.filename, e.strerror)
+				print ("%s: %s: %s" % (sys.argv[0], e.filename, e.strerror), file=sys.stderr)
 				sys.exit (1)
 
 
@@ -215,7 +255,7 @@ class DiffSinks:
 			else:
 				failed += 1
 		total = passed + failed
-		print "%d out of %d tests passed.  %d failed (%g%%)" % (passed, total, failed, 100. * failed / total)
+		print ("%d out of %d tests passed.  %d failed (%g%%)" % (passed, total, failed, 100. * failed / total))
 
 	@staticmethod
 	def print_ngrams (f, ns=(1,2,3)):
@@ -240,7 +280,7 @@ class DiffSinks:
 		del importantgrams
 
 		for ngram, stats in allgrams.iteritems ():
-			print "zscore: %9f failed: %6d passed: %6d ngram: <%s>" % (stats.zscore (allstats), stats.failed.count, stats.passed.count, ','.join ("U+%04X" % u for u in ngram))
+			print ("zscore: %9f failed: %6d passed: %6d ngram: <%s>" % (stats.zscore (allstats), stats.failed.count, stats.passed.count, ','.join ("U+%04X" % u for u in ngram)))
 
 
 
@@ -310,7 +350,7 @@ class FilterHelpers:
 	def filter_printer_function (filter_callback):
 		def printer (f):
 			for line in filter_callback (f):
-				print line
+				print (line)
 		return printer
 
 	@staticmethod
@@ -344,7 +384,7 @@ class UtilMains:
 	def process_multiple_files (callback, mnemonic = "FILE"):
 
 		if "--help" in sys.argv:
-			print "Usage: %s %s..." % (sys.argv[0], mnemonic)
+			print ("Usage: %s %s..." % (sys.argv[0], mnemonic))
 			sys.exit (1)
 
 		try:
@@ -353,14 +393,14 @@ class UtilMains:
 				callback (FileHelpers.open_file_or_stdin (s))
 		except IOError as e:
 			if e.errno != errno.EPIPE:
-				print >> sys.stderr, "%s: %s: %s" % (sys.argv[0], e.filename, e.strerror)
+				print ("%s: %s: %s" % (sys.argv[0], e.filename, e.strerror), file=sys.stderr)
 				sys.exit (1)
 
 	@staticmethod
 	def process_multiple_args (callback, mnemonic):
 
 		if len (sys.argv) == 1 or "--help" in sys.argv:
-			print "Usage: %s %s..." % (sys.argv[0], mnemonic)
+			print ("Usage: %s %s..." % (sys.argv[0], mnemonic))
 			sys.exit (1)
 
 		try:
@@ -368,7 +408,7 @@ class UtilMains:
 				callback (s)
 		except IOError as e:
 			if e.errno != errno.EPIPE:
-				print >> sys.stderr, "%s: %s: %s" % (sys.argv[0], e.filename, e.strerror)
+				print ("%s: %s: %s" % (sys.argv[0], e.filename, e.strerror), file=sys.stderr)
 				sys.exit (1)
 
 	@staticmethod
@@ -377,8 +417,8 @@ class UtilMains:
 					      concat_separator = False):
 
 		if "--help" in sys.argv:
-			print "Usage:\n  %s %s...\nor:\n  %s\n\nWhen called with no arguments, input is read from standard input." \
-			      % (sys.argv[0], mnemonic, sys.argv[0])
+			print ("Usage:\n  %s %s...\nor:\n  %s\n\nWhen called with no arguments, input is read from standard input." \
+			      % (sys.argv[0], mnemonic, sys.argv[0]))
 			sys.exit (1)
 
 		try:
@@ -389,15 +429,15 @@ class UtilMains:
 						break
 					if line[-1] == '\n':
 						line = line[:-1]
-					print callback (line)
+					print (callback (line))
 			else:
 				args = sys.argv[1:]
 				if concat_separator != False:
 					args = [concat_separator.join (args)]
-				print separator.join (callback (x) for x in (args))
+				print (separator.join (callback (x) for x in (args)))
 		except IOError as e:
 			if e.errno != errno.EPIPE:
-				print >> sys.stderr, "%s: %s: %s" % (sys.argv[0], e.filename, e.strerror)
+				print ("%s: %s: %s" % (sys.argv[0], e.filename, e.strerror), file=sys.stderr)
 				sys.exit (1)
 
 
@@ -410,12 +450,14 @@ class Unicode:
 	@staticmethod
 	def parse (s):
 		s = re.sub (r"0[xX]", " ", s)
-		s = re.sub (r"[<+>,;&#\\xXuU\n	]", " ", s)
-		return [int (x, 16) for x in s.split (' ') if len (x)]
+		s = re.sub (r"[<+>{},;&#\\xXuUnNiI\n	]", " ", s)
+		return [int (x, 16) for x in s.split ()]
 
 	@staticmethod
 	def encode (s):
-		return u''.join (unichr (x) for x in Unicode.parse (s)).encode ('utf-8')
+		s = u''.join (unichr (x) for x in Unicode.parse (s))
+		if sys.version_info[0] == 2: s = s.encode ('utf-8')
+		return s
 
 	shorthands = {
 		"ZERO WIDTH NON-JOINER": "ZWNJ",
@@ -471,7 +513,7 @@ class Manifest:
 
 		if not os.path.exists (s):
 			if strict:
-				print >> sys.stderr, "%s: %s does not exist" % (sys.argv[0], s)
+				print ("%s: %s does not exist" % (sys.argv[0], s), file=sys.stderr)
 				sys.exit (1)
 			return
 
@@ -487,7 +529,7 @@ class Manifest:
 						yield p
 			except IOError:
 				if strict:
-					print >> sys.stderr, "%s: %s does not exist" % (sys.argv[0], os.path.join (s, "MANIFEST"))
+					print ("%s: %s does not exist" % (sys.argv[0], os.path.join (s, "MANIFEST")), file=sys.stderr)
 					sys.exit (1)
 				return
 		else:
@@ -506,12 +548,12 @@ class Manifest:
 			dirnames.sort ()
 			filenames.sort ()
 			ms = os.path.join (dirpath, "MANIFEST")
-			print "  GEN    %s" % ms
+			print ("  GEN    %s" % ms)
 			m = open (ms, "w")
 			for f in filenames:
-				print >> m, f
+				print (f, file=m)
 			for f in dirnames:
-				print >> m, f
+				print (f, file=m)
 			for f in dirnames:
 				Manifest.update_recursive (os.path.join (dirpath, f))
 

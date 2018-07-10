@@ -1,11 +1,11 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 Upstream-Name: HarfBuzz
 Upstream-Contact: Behdad Esfahbod
-Source: http://www.freedesktop.org/wiki/Software/HarfBuzz
+Source: https://www.freedesktop.org/wiki/Software/HarfBuzz
 
 Files: *
-Copyright: 2010,2011,2013,2014  Google, Inc.
-           2012,2013  Mozilla Foundation
+Copyright: 2010,2011,2013-2015  Google, Inc.
+           2012,2013,2015  Mozilla Foundation
            2011  Codethink Limited
            2008,2010  Nokia Corporation and/or its subsidiary(-ies)
            2009  Keith Stribley
@@ -18,7 +18,7 @@ Copyright: 2010,2011,2013,2014  Google, Inc.
 License: MIT
 
 Files: debian/*
-Copyright: 2012-2014 أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+Copyright: 2012-2015 أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 License: MIT
 
 License: MIT

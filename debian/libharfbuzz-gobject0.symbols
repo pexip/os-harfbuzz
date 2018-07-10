@@ -1,5 +1,8 @@
 libharfbuzz-gobject.so.0 libharfbuzz-gobject0 #MINVER#
+ _Z38hb_gobject_ot_math_glyph_part_get_typev@Base 1.4.1
+ _Z41hb_gobject_ot_math_glyph_variant_get_typev@Base 1.4.1
  hb_gobject_blob_get_type@Base 0.9.20
+ hb_gobject_buffer_cluster_level_get_type@Base 0.9.42
  hb_gobject_buffer_content_type_get_type@Base 0.9.20
  hb_gobject_buffer_flags_get_type@Base 0.9.20
  hb_gobject_buffer_get_type@Base 0.9.20
@@ -12,9 +15,11 @@ libharfbuzz-gobject.so.0 libharfbuzz-gobject0 #MINVER#
  hb_gobject_font_get_type@Base 0.9.20
  hb_gobject_glyph_info_get_type@Base 0.9.20
  hb_gobject_glyph_position_get_type@Base 0.9.20
- hb_gobject_language_get_type@Base 0.9.21
  hb_gobject_memory_mode_get_type@Base 0.9.20
  hb_gobject_ot_layout_glyph_class_get_type@Base 0.9.20
+ hb_gobject_ot_math_constant_get_type@Base 1.4.1
+ hb_gobject_ot_math_glyph_part_flags_get_type@Base 1.4.1
+ hb_gobject_ot_math_kern_get_type@Base 1.4.1
  hb_gobject_script_get_type@Base 0.9.20
  hb_gobject_segment_properties_get_type@Base 0.9.20
  hb_gobject_set_get_type@Base 0.9.20
