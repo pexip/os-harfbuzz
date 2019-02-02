@@ -1,5 +1,5 @@
-Bug-Database: https://bugs.freedesktop.org/buglist.cgi?product=HarfBuzz&component=src
-Bug-Submit: https://bugs.freedesktop.org/enter_bug.cgi?product=HarfBuzz
+Bug-Database: https://github.com/harfbuzz/harfbuzz/issues
+Bug-Submit: https://github.com/harfbuzz/harfbuzz/issues/new
 Contact: harfbuzz@lists.freedesktop.org
 Homepage: http://harfbuzz.org
 Repository: http://anongit.freedesktop.org/git/harfbuzz.git

@@ -24,12 +24,13 @@
  * Google Author(s): Behdad Esfahbod
  */
 
+#ifndef HELPER_CAIRO_HH
+#define HELPER_CAIRO_HH
+
+#include "hb.hh"
 #include "options.hh"
 
 #include <cairo.h>
-
-#ifndef HELPER_CAIRO_HH
-#define HELPER_CAIRO_HH
 
 
 cairo_scaled_font_t *
@@ -59,7 +60,7 @@ struct helper_cairo_line_t {
   unsigned int num_clusters;
   cairo_text_cluster_flags_t cluster_flags;
 
-  void finish (void) {
+  void finish () {
     if (glyphs)
       cairo_glyph_free (glyphs);
     if (clusters)

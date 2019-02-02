@@ -1,0 +1,25 @@
+#!/bin/sh
+# autopkgtest check: Build and run a program against harfbuzz, to verify that the
+# headers and pkg-config file are installed correctly
+
+set -e
+
+WORKDIR=$(mktemp -d)
+trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
+cd $WORKDIR
+cat <<EOF > hbtest.c
+#include <hb.h>
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+  printf("HarfBuzz: %s\n", hb_version_string());
+  return 0;
+}
+EOF
+
+gcc -o hbtest hbtest.c `pkg-config --cflags --libs harfbuzz`
+echo "build: OK"
+[ -x hbtest ]
+./hbtest
+echo "run: OK"

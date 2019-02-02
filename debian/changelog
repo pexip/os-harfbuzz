@@ -1,3 +1,183 @@
+harfbuzz (2.3.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update to standards version 4.3.0
+  * Update copyright years
+  * Bumped compat level to 12
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sat, 02 Feb 2019 05:22:09 +0100
+
+harfbuzz (2.3.0-1) unstable; urgency=medium
+
+  * New upstream release
+    + Fix regression on big-endian architectures. (Closes: #916782)
+  * Update upstream bug tracker URLs
+  * Update symbols file
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 21 Dec 2018 05:03:51 +0100
+
+harfbuzz (2.2.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update standards version to 4.2.1, no changes needed
+  * Update symbols files
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 16 Dec 2018 05:54:26 +0100
+
+harfbuzz (2.1.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update symbols file
+  * debian/libharfbuzz-gobject0.symbols: added Build-Depends-Package field
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 12 Nov 2018 13:14:46 +0100
+
+harfbuzz (1.9.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add pkg-config to build autopkgtest dependencies
+  * Update symbols
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 23 Sep 2018 08:06:44 +0200
+
+harfbuzz (1.8.8-2) unstable; urgency=medium
+
+  * Fix autopkgtest dependency
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sat, 18 Aug 2018 16:19:03 +0200
+
+harfbuzz (1.8.8-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add autopkgtest test suite
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 16 Aug 2018 08:34:16 +0200
+
+harfbuzz (1.8.7-1) unstable; urgency=medium
+
+  * New upstream release
+  * Remove no-op testsuite
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 12 Aug 2018 07:19:35 +0200
+
+harfbuzz (1.8.6-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update symbols
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 08 Aug 2018 04:05:56 +0200
+
+harfbuzz (1.8.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * Updated standards version to 4.2.0
+  * Update symbols
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sat, 04 Aug 2018 08:29:33 +0200
+
+harfbuzz (1.8.4-2) unstable; urgency=medium
+
+  * Do not install any file related to hb-subset (Closes: #904507, #896075)
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 27 Jul 2018 00:55:38 +0200
+
+harfbuzz (1.8.4-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 22 Jul 2018 02:37:28 +0200
+
+harfbuzz (1.8.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 15 Jul 2018 02:31:29 +0200
+
+harfbuzz (1.8.2-2) unstable; urgency=medium
+
+  * Add autopkgtest (Closes: #896710)
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sat, 07 Jul 2018 01:25:28 +0200
+
+harfbuzz (1.8.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bumped compat level to 11
+  * Updated standards version to 4.1.5
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 06 Jul 2018 17:54:45 +0200
+
+harfbuzz (1.8.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update standards version
+  * Update copyright years
+  * Update symbols file
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 24 Jun 2018 17:37:17 +0200
+
+harfbuzz (1.7.6-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/patches/unbreak_abi.diff: dropped, nothing uses that and it has
+    caused problems in the past.
+  * Update Vcs for move to salsa.debian.org.
+  * Add new symbols.
+  * Don't package hb-subset or libharfbuzz-subset yet.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 13 Apr 2018 20:20:13 +0200
+
+harfbuzz (1.7.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump standards version to 4.1.2
+  * Set gir1.2-harfbuzz-0.0 to multiarch same
+  * Install typelib file in multiarch dir
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 07 Dec 2017 04:44:42 +0100
+
+harfbuzz (1.7.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Refresh unbreak-abi.diff patch
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 19 Nov 2017 01:14:34 +0100
+
+harfbuzz (1.6.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * Remove duplicate priority field
+  * Strictly version typelib dependency
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 06 Nov 2017 04:00:20 +0100
+
+harfbuzz (1.6.2-1) unstable; urgency=medium
+
+  [ ﺄﺤﻣﺩ ﺎﻠﻤﺤﻣﻭﺪﻳ (Ahmed El-Mahmoudy) ]
+  * New upstream release.
+  * Add new symbols.
+  * Bump Standards-Version to 4.1.1.
+  * Set udeb priority to optional.
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/patches/unbreak_abi.diff:
+    + Add missing HB_EXTERN to hb_version_check, fixes a test failure
+      that is checking that all public symbols are HB_EXTERN.
+  * debian/control:
+    + Let libharfbuzz-dev depend on gir1.2-harfbuzz-0.0, per the gobject
+      introspection mini-policy.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 26 Oct 2017 08:58:36 +0200
+
+harfbuzz (1.5.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/rules: set locale to C.UTF-8, otherwise glib-mkenums chokes on
+    UTF-8 input, such as src/hb-gobject-enums.cc.tmpl. Closes: #870689.
+  * debian/libharfbuzz*.symbols: Add new symbols.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 03 Oct 2017 20:01:26 +0200
+
 harfbuzz (1.4.2-1) unstable; urgency=medium
 
   * New upstream release.
