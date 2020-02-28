@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 XSBC-Pexip-Original-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
-Standards-Version: 3.9.8
+Standards-Version: 4.3.0
 Build-Depends:
- debhelper (>= 10),
+ debhelper (>= 12),
  pkg-config,
  libglib2.0-dev (>= 2.19.1),
  libcairo2-dev,
@@ -17,8 +17,8 @@ Build-Depends:
  gobject-introspection (>= 1.42.0),
  gtk-doc-tools (>= 1.15),
 Homepage: https://www.freedesktop.org/wiki/Software/HarfBuzz
-Vcs-Git: https://anonscm.debian.org/git/collab-maint/harfbuzz.git
-Vcs-Browser: https://anonscm.debian.org/git/collab-maint/harfbuzz.git
+Vcs-Git: https://salsa.debian.org/freedesktop-team/harfbuzz.git
+Vcs-Browser: https://salsa.debian.org/freedesktop-team/harfbuzz
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ buster
 
 Package: libharfbuzz0b
@@ -49,6 +49,7 @@ Description: OpenType text shaping engine ICU backend (GObject library)
 Package: gir1.2-harfbuzz-0.0
 Section: introspection
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${gir:Depends}
 Description: OpenType text shaping engine (GObject introspection data)
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout
@@ -76,6 +77,7 @@ Depends:
  libharfbuzz0b (= ${binary:Version}),
  libharfbuzz-icu0 (= ${binary:Version}),
  libharfbuzz-gobject0 (= ${binary:Version}),
+ gir1.2-harfbuzz-0.0 (= ${binary:Version}),
  libglib2.0-dev (>= 2.19.1),
  libgraphite2-dev,
  libicu-dev,
@@ -111,7 +113,6 @@ Package: libharfbuzz0-udeb
 Package-Type: udeb
 Architecture: any
 Section: debian-installer
-Priority: extra
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: OpenType text shaping engine
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout

@@ -1,0 +1,2 @@
+Tests: build
+Depends: libharfbuzz-dev, build-essential, pkg-config
