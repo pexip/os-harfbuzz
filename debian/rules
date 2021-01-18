@@ -26,7 +26,7 @@ override_dh_auto_install:
 	dh_auto_install --builddir build-main
 
 override_dh_install:
-	dh_install -Xsubset
+	dh_install --exclude=subset
 
 override_dh_makeshlibs:
-	dh_makeshlibs -V --add-udeb="libharfbuzz0-udeb" -- -c4
+	dh_makeshlibs --version-info --add-udeb="libharfbuzz0-udeb" -- -c4

@@ -1,0 +1,3 @@
+usr/lib/*/*subset*
+usr/lib/*/pkgconfig/*subset.pc
+usr/lib/*/*la

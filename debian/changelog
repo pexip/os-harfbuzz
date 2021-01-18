@@ -1,3 +1,97 @@
+harfbuzz (2.7.4-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Update symbols.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 18 Jan 2021 16:43:29 +0100
+
+harfbuzz (2.6.7-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Use correct machine-readable copyright file URI.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Repository.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ أحمد المحمودي (Ahmed El-Mahmoudy) ]
+  * New upstream version 2.6.7
+  * Dropped py3.diff patch, applied upstream
+  * Update symbols
+  * Bumped compat level to 13
+  * Add libfreetype2-dev to deps of libharfbuzz-dev
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sat, 13 Jun 2020 15:28:02 +0200
+
+harfbuzz (2.6.4-1) unstable; urgency=medium
+
+  * Imported Upstream version 2.6.4
+  * Add Rules-Requires-Root: no
+  * Update symbols file
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Sun, 03 Nov 2019 03:37:28 +0100
+
+harfbuzz (2.6.2-1) unstable; urgency=medium
+
+  * Imstall cmake file in libharfbuzz-dev
+  * Revert "Add separate dh_makeshlibs call for the udeb"
+    This reverts commit a4bbcc06c858fb5f1e07dca96fc2eee32819036d.
+  * Add d/not-installed to list deliberately non-installed files
+  * Imported Upstream version 2.6.2
+  * Update standards version to 4.4.1
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 03 Oct 2019 06:06:33 +0200
+
+harfbuzz (2.6.1-3) unstable; urgency=medium
+
+  * Added py3.diff patch to change shebang of python scripts to python3
+  * Added python3:any to build deps (Closes: #939938)
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 11 Sep 2019 05:59:47 +0200
+
+harfbuzz (2.6.1-2) unstable; urgency=medium
+
+  * Add separate dh_makeshlibs call for the udeb
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Tue, 27 Aug 2019 05:42:57 +0200
+
+harfbuzz (2.6.1-1) unstable; urgency=medium
+
+  * New upstream version 2.6.1
+  * Tag build autopkgtest as superficial
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 26 Aug 2019 02:52:15 +0200
+
+harfbuzz (2.6.0-1) unstable; urgency=medium
+
+  * New upstream version 2.6.0
+  * Update symbols' files
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 16 Aug 2019 04:06:52 +0200
+
+harfbuzz (2.5.3-1) unstable; urgency=medium
+
+  * New upstream version 2.5.3
+  * d/watch: add xz & gz extensions
+  * Update standards version to 4.4.0
+  * Update symbols
+  * Remove doc-base file
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Fri, 19 Jul 2019 04:59:10 +0200
+
+harfbuzz (2.4.0-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * Remove gbp.conf
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Thu, 04 Jul 2019 03:39:33 +0200
+
+harfbuzz (2.4.0-1) experimental; urgency=medium
+
+  * New upstream release
+  * Add gbp.conf
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 03 Apr 2019 03:51:41 +0200
+
 harfbuzz (2.3.1-1) unstable; urgency=medium
 
   * New upstream release
@@ -484,10 +578,10 @@ harfbuzz (0.9.18-1) unstable; urgency=low
 
 harfbuzz (0.9.17-4) unstable; urgency=low
 
-  * Added icu.patch patch to add configure option to enable/disable ICU 
+  * Added icu.patch patch to add configure option to enable/disable ICU
     support.
     Thanks to Emilio Pozuelo Monfort <pochu@debian.org>
-  * Added graphite2.diff patch to add configure option to enable/disable 
+  * Added graphite2.diff patch to add configure option to enable/disable
     Graphite2 support.
   * Use autoreconf
   * Re-enable ICU support
