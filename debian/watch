@@ -1,2 +1,3 @@
 version=3
-https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-([\d\.]+)\.tar\.bz2
+https://github.com/harfbuzz/harfbuzz/releases \
+	https://github.com/harfbuzz/harfbuzz/releases/download/.*/harfbuzz-([\d\.]+)\.tar\.(?:xz|bz2|gz)

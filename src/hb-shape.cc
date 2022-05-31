@@ -139,8 +139,6 @@ hb_shape_full (hb_font_t          *font,
   hb_bool_t res = hb_shape_plan_execute (shape_plan, font, buffer, features, num_features);
   hb_shape_plan_destroy (shape_plan);
 
-  if (res)
-    buffer->content_type = HB_BUFFER_CONTENT_TYPE_GLYPHS;
   return res;
 }
 
@@ -154,7 +152,9 @@ hb_shape_full (hb_font_t          *font,
  *
  * Shapes @buffer using @font turning its Unicode characters content to
  * positioned glyphs. If @features is not %NULL, it will be used to control the
- * features applied during shaping.
+ * features applied during shaping. If two @features have the same tag but
+ * overlapping ranges the value of the feature with the higher index takes
+ * precedence.
  *
  * Since: 0.9.2
  **/
