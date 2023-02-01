@@ -7,6 +7,13 @@ set -e
 WORKDIR=$(mktemp -d)
 trap "rm -rf $WORKDIR" 0 INT QUIT ABRT PIPE TERM
 cd $WORKDIR
+
+if [ -n "${DEB_HOST_GNU_TYPE:-}" ]; then
+    CROSS_COMPILE="$DEB_HOST_GNU_TYPE-"
+else
+    CROSS_COMPILE=
+fi
+
 cat <<EOF > hbtest.c
 #include <hb.h>
 #include <stdio.h>
@@ -18,7 +25,7 @@ int main(int argc, char **argv)
 }
 EOF
 
-gcc -o hbtest hbtest.c `pkg-config --cflags --libs harfbuzz`
+${CROSS_COMPILE}gcc -o hbtest hbtest.c `${CROSS_COMPILE}pkg-config --cflags --libs harfbuzz`
 echo "build: OK"
 [ -x hbtest ]
 ./hbtest

@@ -1,3 +1,4 @@
-version=3
-https://github.com/harfbuzz/harfbuzz/releases \
-	https://github.com/harfbuzz/harfbuzz/releases/download/.*/harfbuzz-([\d\.]+)\.tar\.(?:xz|bz2|gz)
+version=4
+opts=searchmode=plain,dversionmangle=auto,repacksuffix=+dfsg \
+https://api.github.com/repos/@PACKAGE@/@PACKAGE@/releases \
+https://github.com/@PACKAGE@/@PACKAGE@/releases/download/v?[\d.]+/@PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@

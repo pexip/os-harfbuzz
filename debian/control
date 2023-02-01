@@ -3,19 +3,20 @@ Section: libs
 Priority: optional
 Maintainer: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
 Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>
-Standards-Version: 4.5.0
+Standards-Version: 4.6.2
 Build-Depends:
  debhelper-compat (= 13),
+ dh-sequence-gir,
+ meson (>= 0.55),
  pkg-config,
- libglib2.0-dev (>= 2.19.1),
+ libglib2.0-dev,
  libcairo2-dev,
- libfreetype6-dev,
+ libchafa-dev,
+ libfreetype-dev,
  libicu-dev,
  libgraphite2-dev,
- libgirepository1.0-dev (>= 1.31.0-2),
- gobject-introspection (>= 1.42.0),
- gtk-doc-tools (>= 1.15),
- python3:any
+ libgirepository1.0-dev,
+ gtk-doc-tools,
 Rules-Requires-Root: no
 Homepage: https://www.freedesktop.org/wiki/Software/HarfBuzz
 Vcs-Git: https://salsa.debian.org/freedesktop-team/harfbuzz.git
@@ -27,7 +28,6 @@ Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Conflicts: libharfbuzz0, libharfbuzz0a
 Replaces: libharfbuzz0, libharfbuzz0a
-Pre-Depends: ${misc:Pre-Depends}
 Description: OpenType text shaping engine (shared library)
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout
  engine) and the script-specific logic (aka shaping engine).
@@ -38,7 +38,6 @@ Package: libharfbuzz-gobject0
 Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Pre-Depends: ${misc:Pre-Depends}
 Description: OpenType text shaping engine ICU backend (GObject library)
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout
  engine) and the script-specific logic (aka shaping engine).
@@ -77,11 +76,12 @@ Depends:
  libharfbuzz0b (= ${binary:Version}),
  libharfbuzz-icu0 (= ${binary:Version}),
  libharfbuzz-gobject0 (= ${binary:Version}),
+ libharfbuzz-subset0 (= ${binary:Version}),
  gir1.2-harfbuzz-0.0 (= ${binary:Version}),
- libglib2.0-dev (>= 2.19.1),
+ libglib2.0-dev,
  libgraphite2-dev,
  libicu-dev,
- libfreetype6-dev,
+ libfreetype-dev,
 Description: Development files for OpenType text shaping engine
  HarfBuzz is an implementation of the OpenType Layout engine (aka layout
  engine) and the script-specific logic (aka shaping engine).
@@ -98,6 +98,17 @@ Description: OpenType text shaping engine (utility)
  engine) and the script-specific logic (aka shaping engine).
  .
  This package contains a command line interface for the HarfBuzz library.
+
+Package: libharfbuzz-subset0
+Multi-Arch: same
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OpenType text shaping engine (subset library)
+ HarfBuzz is an implementation of the OpenType Layout engine (aka layout
+ engine) and the script-specific logic (aka shaping engine).
+ .
+ This package contains the library for subsetting fonts. Subsetting reduces
+ codepoint coverage of font files and removes unnecessary data.
 
 Package: libharfbuzz-doc
 Section: doc

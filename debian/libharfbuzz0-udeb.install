@@ -1,1 +1,1 @@
-build-udeb/src/.libs/libharfbuzz.so.* lib
+build-udeb/src/libharfbuzz.so.*[0-9] lib

@@ -1,0 +1,30 @@
+author: Behdad Esfahbod
+description: fix build for the upstream test we removed
+
+This is pulled from upstream:
+https://github.com/harfbuzz/harfbuzz/commit/e4cdaa1d3f7aa9725ba1d2beed4096287a8d59ce
+
+We're stripping a test font out of the source tarball, so we need
+to adjust things accordingly.
+
+
+--- a/test/shape/data/in-house/Makefile.sources
++++ b/test/shape/data/in-house/Makefile.sources
+@@ -4,7 +4,6 @@ TESTS = \
+ 	tests/arabic-fallback-shaping.tests \
+ 	tests/arabic-feature-order.tests \
+ 	tests/arabic-like-joining.tests \
+-	tests/arabic-mark-attach.tests \
+ 	tests/arabic-mark-order.tests \
+ 	tests/arabic-normalization.tests \
+ 	tests/arabic-phags-pa.tests \
+--- a/test/shape/data/in-house/meson.build
++++ b/test/shape/data/in-house/meson.build
+@@ -4,7 +4,6 @@ in_house_tests = [
+   'arabic-fallback-shaping.tests',
+   'arabic-feature-order.tests',
+   'arabic-like-joining.tests',
+-  'arabic-mark-attach.tests',
+   'arabic-mark-order.tests',
+   'arabic-normalization.tests',
+   'arabic-phags-pa.tests',

@@ -1,6 +1,5 @@
 Bug-Database: https://github.com/harfbuzz/harfbuzz/issues
 Bug-Submit: https://github.com/harfbuzz/harfbuzz/issues/new
 Contact: harfbuzz@lists.freedesktop.org
-Homepage: http://harfbuzz.org
-Repository: https://gitlab.freedesktop.org/harfbuzz.git
-Repository-Browse: http://cgit.freedesktop.org/harfbuzz/
+Repository: https://github.com/harfbuzz/harfbuzz.git
+Repository-Browse: https://github.com/harfbuzz/harfbuzz
