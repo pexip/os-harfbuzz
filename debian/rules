@@ -3,12 +3,16 @@
 # Needed for glib-mkenums to work with UTF-8 input
 export LC_ALL=C.UTF-8
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
+
 %:
-	dh $@ --with gir
+	dh $@ --buildsystem=meson --without autoreconf
 
 override_dh_auto_configure:
-	dh_auto_configure --builddir build-main -- --with-graphite2=yes --enable-introspection --with-gobject --enable-gtk-doc --enable-static
-	dh_auto_configure --builddir build-udeb -- --with-graphite2=no
+	dh_auto_configure --builddir build-main -- -Dauto_features=enabled -Dgraphite2=enabled
+	dh_auto_configure --builddir build-udeb -- -Dauto_features=enabled -Dgraphite2=disabled -Dchafa=disabled
 
 override_dh_auto_clean:
 	dh_auto_clean --builddir build-main
@@ -25,8 +29,5 @@ override_dh_auto_test:
 override_dh_auto_install:
 	dh_auto_install --builddir build-main
 
-override_dh_install:
-	dh_install --exclude=subset
-
 override_dh_makeshlibs:
-	dh_makeshlibs --version-info --add-udeb="libharfbuzz0-udeb" -- -c4
+	dh_makeshlibs --add-udeb="libharfbuzz0-udeb"

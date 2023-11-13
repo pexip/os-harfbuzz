@@ -1,3 +1,92 @@
+harfbuzz (6.0.0+dfsg-3) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.2, no changes needed
+  * Release to unstable
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 01 Feb 2023 16:47:11 -0500
+
+harfbuzz (6.0.0+dfsg-2) experimental; urgency=medium
+
+  * Team upload
+
+  * Add a libharfbuzz-subset0 package (closes: #988781).
+
+ -- Andres Salomon <dilinger@debian.org>  Mon, 30 Jan 2023 12:28:44 -0500
+
+harfbuzz (6.0.0+dfsg-1) unstable; urgency=medium
+
+  [ Andres Salomon ]
+  * Use Files-Excluded to exclude non-free test fonts
+    and generate a new tarball
+  * Update debian/copyright for numerous font licenses and copyright holders
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 30 Jan 2023 11:44:28 -0500
+
+harfbuzz (6.0.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Drop patch applied in new release
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 28 Dec 2022 07:34:07 -0900
+
+harfbuzz (5.3.1-2) unstable; urgency=medium
+
+  * Cherry-pick patch to fix build test when built with LTO
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 15 Dec 2022 08:20:37 -0500
+
+harfbuzz (5.3.1-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * debian/libharfbuzz0b.symbols: Add new symbols
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 13 Dec 2022 08:55:50 -0500
+
+harfbuzz (5.2.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Release to unstable
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 22 Sep 2022 06:28:46 -0400
+
+harfbuzz (5.2.0-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 17 Sep 2022 09:13:45 -0400
+
+harfbuzz (5.1.0-1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Jeremy Bicha ]
+  * New upstream release (Closes: #1010435)
+    - Includes fix for CVE-2022-33068 (Closes: #1013673)
+  * Build with meson
+  * Build-Depend on dh-sequence-gir
+  * Build-Depend on libchafa-dev
+  * debian/*.symbols: Add new symbols
+  * debian/libharfbuzz0b.docs: TODO is no longer provided
+  * Add debian/gbp.conf
+  * Enable all hardening flags
+  * Bump Standards-Version to 4.6.1
+
+  [ Laurent Bigonville ]
+  * debian/control.in: Switch dependencies from libfreetype6-dev to
+    libfreetype-dev
+
+  [ Simon McVittie ]
+  * Update upstream metadata to point to repository on Github
+
+  [ Steve Langasek ]
+  * debian/tests/build: Make cross-test-friendly
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 15 Sep 2022 17:14:37 -0400
+
 harfbuzz (2.7.4-1pexip3) pexip-bullseye; urgency=medium
 
   * Bullseye rebuild for ARM64 inclusion
