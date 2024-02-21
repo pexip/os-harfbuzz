@@ -23,7 +23,7 @@ try:
 except IOError:
 	pass
 
-with open (INPUT, "r", encoding='utf-8') as template:
+with open (INPUT, "r", encoding='utf-8', newline='') as template:
 	with open (OUTPUT, "wb") as output:
 		output.write (template.read ()
 			.replace ("@HB_VERSION_MAJOR@", major)
