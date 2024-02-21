@@ -1,0 +1,26 @@
+Index: os-harfbuzz/src/gen-harfbuzzcc.py
+===================================================================
+--- os-harfbuzz.orig/src/gen-harfbuzzcc.py
++++ os-harfbuzz/src/gen-harfbuzzcc.py
+@@ -14,7 +14,7 @@ CURRENT_SOURCE_DIR = sys.argv[2]
+ sources = sorted(set(sys.argv[3:]))
+ 
+ with open (OUTPUT, "wb") as f:
+-	f.write ("".join ('#include "{}"\n'.format (os.path.relpath (os.path.abspath (x), CURRENT_SOURCE_DIR)) for x in sources if x.endswith (".cc")).encode ())
++	f.write ("".join ('#include "{}"{}'.format (os.path.relpath (os.path.abspath (x), CURRENT_SOURCE_DIR), os.linesep) for x in sources if x.endswith (".cc")).encode ())
+ 
+ # copy it also to the source tree, but only if it has changed
+ baseline_filename = os.path.join (CURRENT_SOURCE_DIR, os.path.basename (OUTPUT))
+Index: os-harfbuzz/src/gen-hb-version.py
+===================================================================
+--- os-harfbuzz.orig/src/gen-hb-version.py
++++ os-harfbuzz/src/gen-hb-version.py
+@@ -23,7 +23,7 @@ try:
+ except IOError:
+ 	pass
+ 
+-with open (INPUT, "r", encoding='utf-8') as template:
++with open (INPUT, "r", encoding='utf-8', newline='') as template:
+ 	with open (OUTPUT, "wb") as output:
+ 		output.write (template.read ()
+ 			.replace ("@HB_VERSION_MAJOR@", major)
