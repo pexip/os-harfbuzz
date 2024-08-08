@@ -291,7 +291,8 @@ endif
 
 # CoreText (macOS)
 coretext_deps = []
-if host_machine.system() == 'darwin' and not get_option('coretext').disabled()
+
+if host_machine.system() in ['darwin', 'ios'] and not get_option('coretext').disabled()
   app_services_dep = dependency('appleframeworks', modules: ['ApplicationServices'], required: false)
   if cpp.has_type('CTFontRef', prefix: '#include <ApplicationServices/ApplicationServices.h>', dependencies: app_services_dep)
     coretext_deps += [app_services_dep]
