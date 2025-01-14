@@ -1,3 +1,114 @@
+harfbuzz (10.2.0-1) unstable; urgency=medium
+
+  * New upstream version 10.2.0
+  * d/libharfbuzz-subset0.symbols: Update symbols
+  * Dropped cairo-Guard-hb_cairo_glyphs_from_buffer-against-bad-UTF-8.patch,
+    applied upstream
+  * Update copyright years
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Tue, 14 Jan 2025 22:20:38 +0100
+
+harfbuzz (10.1.0-2) unstable; urgency=high
+
+  * Team upload
+  * SECURITY UPDATE: Heap-based buffer overflow (Closes: #1091529)
+    - Cherry-pick upstream fix for the hb_cairo_glyphs_from_buffer function
+    - CVE-2024-56732
+  * debian/upstream/metadata: Add security contact
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sat, 28 Dec 2024 12:53:25 -0500
+
+harfbuzz (10.1.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 10.1.0
+  * debian/libharfbuzz0b.symbols: Add new symbols
+  * Update Homepage
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Fri, 06 Dec 2024 23:20:19 -0500
+
+harfbuzz (10.0.1-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 10.0.1
+  * debian/libharfbuzz0b.symbols: Add new symbols
+  * Bump Standards Version to 4.7.0
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Thu, 17 Oct 2024 14:26:03 -0400
+
+harfbuzz (9.0.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 9.0.0
+  * debian/*.symbols: Add new symbols
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 14 Aug 2024 11:51:31 -0400
+
+harfbuzz (8.3.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Release to unstable
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sat, 20 Jan 2024 10:33:21 -0500
+
+harfbuzz (8.3.0-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream version 8.3.0 (Closes: #1057964)
+  * debian/libharfbuzz0b.symbols: Add new symbols
+  * Add ${gir:Depends}, ${gir:Provides} to -dev package (Closes: #1061082)
+  * d/control: Build-depend on GIR XML that is explicitly included
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Fri, 19 Jan 2024 21:14:42 -0500
+
+harfbuzz (8.0.1-1) unstable; urgency=medium
+
+  * New upstream version 8.0.1
+  * Drop subset-Fix-cast-align-issue.patch, applied upstream
+  * Update copyright holders
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 12 Jul 2023 22:45:57 +0200
+
+harfbuzz (8.0.0-3) unstable; urgency=medium
+
+  * Add subset-Fix-cast-align-issue.patch to fix cast-align issue.
+    Fixes build on 32-bit ARM archs
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 12 Jul 2023 05:27:57 +0200
+
+harfbuzz (8.0.0-2) unstable; urgency=medium
+
+  [ Jeremy Bicha ]
+  * Drop obsolete Files-Excluded.
+    As was pointed out in the below commit, the 2 files
+    are no longer provided in the latest releases of HarfBuzz
+    Revert "Fill in d/copyright, and also bump version string w/ +dfsg"
+    This partially reverts commit 040799cd82759f57a0cfcbf40e4cc7a1d77a5a0a.
+
+  [ أحمد المحمودي (Ahmed El-Mahmoudy) ]
+  * Drop invalid-language-zero.patch as it resulted in an API change causing
+    other (C++) packages to FTBFS (Closes: #1040872)
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Wed, 12 Jul 2023 02:47:25 +0200
+
+harfbuzz (8.0.0-1) unstable; urgency=medium
+
+  * New upstream version 8.0.0
+    - Fixes FTBFS with GCC-13 (Closes: #1037687)
+    - Includes fix for CVE-2023-25193 (Closes: #1030612)
+    - Pass libharfbuzz as positional parameter for GIR generation
+      (Closes: #1039498)
+  * Update copyright years
+  * Drop fix-tests.patch, applied upstream
+  * Add libharfbuzz-cairo0 package
+  * Update symbols' files
+  * Add invalid-language-zero.patch to remove typecast from
+    HB_LANGUAGE_INVALID definition.
+    Thanks to James Addison <jay@jp-hosting.net> (Closes: #1035669)
+  * d/libharfbuzz0b.symbols: update symbols
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>  Mon, 10 Jul 2023 04:00:02 +0200
+
 harfbuzz (6.0.0+dfsg-3) unstable; urgency=medium
 
   * Team upload

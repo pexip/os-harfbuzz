@@ -1,0 +1,11 @@
+libharfbuzz-cairo.so.0 libharfbuzz-cairo0 #MINVER#
+* Build-Depends-Package: libharfbuzz-dev
+ hb_cairo_font_face_create_for_face@Base 7.0.0
+ hb_cairo_font_face_create_for_font@Base 7.0.0
+ hb_cairo_font_face_get_face@Base 7.0.0
+ hb_cairo_font_face_get_font@Base 7.0.0
+ hb_cairo_font_face_get_scale_factor@Base 7.0.0
+ hb_cairo_font_face_set_font_init_func@Base 7.0.0
+ hb_cairo_font_face_set_scale_factor@Base 7.0.0
+ hb_cairo_glyphs_from_buffer@Base 7.0.0
+ hb_cairo_scaled_font_get_font@Base 7.0.0
