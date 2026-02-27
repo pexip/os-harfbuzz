@@ -1,3 +1,5 @@
+Handle line endings more sensibly on Windows
+
 Index: os-harfbuzz/src/gen-harfbuzzcc.py
 ===================================================================
 --- os-harfbuzz.orig/src/gen-harfbuzzcc.py
